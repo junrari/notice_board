@@ -1,0 +1,52 @@
+    <link rel="stylesheet" href="/static/css/user.css"/> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <title>Login Page</title>
+
+<body>
+    <div class="container">
+        
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input type="text"  name="username" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <button onclick="login()" id="login">Login</button>
+<div>
+</div>
+<div style= "padding: 3px 0px 0px 0px">
+    <button  type="button" onclick="location.href='/user/join'" value="회원가입">Join</button>
+</div>
+
+            
+            
+
+       
+    </div>
+<script>
+ function login(){
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        console.log('username:%s password:%s',username,password);
+        fetch('/user/login/loginuser', {
+            method :'post',
+            headers :{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                'username':username,
+                'password':password
+            })
+        }).then((res)=> res.json())
+        .then((res)=>{
+            if(!res.exist){
+                alert(`일치하는 정보가 없습니다`)  
+                window.location.href="/user/login"
+            } else{
+                window.location.href="/page"
+            }       
+        })
+    }
+</script>
+</body>

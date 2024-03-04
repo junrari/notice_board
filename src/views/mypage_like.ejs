@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="/static/css/styles.css"/> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/static/css/styles.css"/> 
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
+
+
+<div class="container">
+    내가 좋아요 누른 게시글
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>등록</th>
+            <th>조회수</th>
+        </tr>
+           <% if(likelist===0) { %>
+            <tr>
+                <th colspan="4">
+                    등록된 정보가 없습니다
+                </th>
+            </tr>
+        <%}else{%>
+                <% likelist.forEach(data=>{%>
+                <tr>
+                    <td>
+                        <%= data.rn %>
+                    </td>
+                    <td>
+                        <a href="/page/content/<%=data.num%>">
+                            <%= data.title %></a> <%if(data.image_path!==null){%>
+                                <span><img src="/static/image/photo.png" class="list_photoIcon" alt="사진"></span>
+                                 <%}%>  
+                    </td>
+                    <td>
+                        <%= data.pdate %>
+                    </td>
+                    <td>
+                        <%= data.count %>
+                    </td>
+                </tr>
+            <%})%>
+        <%}%>
+     
+        <tr>
+            <td colspan="4">
+                <% if(likestart <=1){%>
+                    <button disabled class="nav-button">이전</button>
+                <%}else{%>
+                        <button type="button"
+                        onclick="location.href='/page/mypage?likestart=<%=likestart -1%>'" class="nav-button">이전</button>
+                <%} for (var i=1 ; i< likestart; i++ ){%>
+                <a href="/page/mypage?likestart=<%=i%>"> <%=i%> </a>
+                <%}%>
+                <a href="/page/mypage?likestart=<%=likestart%>" class="current-page"><%=likestart%></a>
+                <%for (var i=likestart+1 ; i <= likepage.totalPage; i++ ){%>
+                    <a href="/page/mypage?likestart=<%=i%>"> <%=i%> </a>
+                <%} if(likestart< likepage.totalPage){ %>
+                    <button type="button"
+                                    onclick="location.href='/page/mypage?likestart=<%=likestart+1%>'" class="nav-button">다음</button>
+                                <%}else{%>
+                                    <button disabled class="nav-button">다음</button>
+                                    <%}%>
+    
+                        <%=userliketotalContent%> 
+    
+            </td>
+        </tr>
+    </table>
+    
+<a href="/page/list" class="button-link">홈으로 이동</a>
+</div>

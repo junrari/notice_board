@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.box {
+    
+    width: 2000px;
+    height:1000px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+   
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea{
+    height: 80%;
+}
+
+.btn_submit{
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4caf50; /* Green background color for "등록" button */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    float: right; /* Move the "등록" button to the right */
+   
+}
+.btn_file{
+    display: inline-block;
+
+    background-color: #ffcc00; /* Green background color for "등록" button */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  
+    float: right; /* Move the "등록" button to the right */
+    margin-right: 10px;
+}
+a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #e0e0e0; /* Light gray background color for "목록이동" link */
+    color: #87CEFA; /* Light blue color for the text */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+a:hover {
+    background-color: #d4d4d4; /* Darker gray color on hover for "목록이동" link */
+}

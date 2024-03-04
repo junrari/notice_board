@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Page Title</title>
+        <link rel="stylesheet" href="/static/css/file.css"/> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <%= files %>
+    <hr>
+    <% files.forEach( item=>{ %>
+        <img src="/file/download/<%=item%>" width="100px" height="100px">
+        <br>
+        <a href="/file/download/<%=item%>"><%=item%></a>
+        <a href="/file/download/?item=<%=item%>"><%=item%></a>
+        <a href="/file/deleteFile/<%=item%>"><%=item%>삭제</a>
+        <a href="/file/modify_form/<%=item%>"><%=item%>이미지수정</a>
+        <hr>
+    <% }) %>
+    <br>
+    <input id="a">dfasasdf</input>
+    </body>
+    <script>
+        document.getElementById("a").value = '<%=files%>'
+    </script>
+</html>

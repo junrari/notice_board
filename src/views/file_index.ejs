@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="/static/css/file.css"/> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+
+<script src="/static/js/image_read.js"></script>
+file 연동확인
+<form action="/file/upload" method="post" enctype="multipart/form-data">
+
+    <input type="text" name="title"><br>
+    <img id="preview" src="#" width="auto" height="auto" alt="이미지가 없음"> <br>
+    <input type="file" name="file_name" onchange="readURL(this)"> <br>
+    <input type="submit" value="전송">
+
+</form>
+<hr>
+<a href="/file/list">데이터 확인</a>
+
+</div>
+</body>
+</html>

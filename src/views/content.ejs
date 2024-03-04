@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Page</title>
+    <link rel="stylesheet" href="/static/css/styles.css"/> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
+</head>
+<script src="/static/js/reply_view.js"></script>
+<script src="/static/js/delete_post.js"></script>
+<div class="mainDiv">
+    <%- include('./main.ejs')%>
+</div>
+
+<body onload="init('<%= dataList.num%>')">
+    
+
+    <div class="bulletin-board">
+<%- include ("./reply_form") %>
+<div class="detail-section">
+<h3>상세페이지</h3>
+번호 : <%= dataList.num%> <br>
+제목 : <%= dataList.title%> <br>
+작성자 : <%= dataList.writer_fullname%> <br>
+작성일 : <%= dataList.pdate %> <br>
+조회수 : <%= dataList.count%> <br>
+<div class="content-text">
+    <%if(dataList.image_path !== null){%>
+        <img id="preview" src="/static/<%=dataList.image_path%>" class="content_img"> <br>
+        <%}%>
+    <%= dataList.text %>
+</div>
+<br><br>
+<div style="text-align: center;">
+    <button class="like-button" id="likeBtn" >좋아요<span id="liketotal"><%=dataList.like%></span> </button>
+</div>
+
+
+
+
+
+
+ 
+<a href="/page/list" class="button-link">목록이동</a>
+
+<button type="button" onclick="reply_form()" class="answerbtn">답변</button>
+<%if(dataList.writer_username === dataList.id){%>
+    <button type="button" onclick="delete_post()" class="deletebtn">삭제  </button>
+    <%}%>
+
+</div>
+</div>
+<div id ="content" class="comment-window"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+    let isLiked = '<%=dataList.isLiked%>'
+    let liketotal = Number('<%=dataList.like%>')
+    let postnum =  Number('<%=dataList.num%>')
+    const likeBtn = document.getElementById('likeBtn');
+    console.log("isLiked ",isLiked);
+    if (isLiked==='true') {
+    // 좋아요가 이미 눌려있는 경우, 좋아요 버튼 빨강으로
+    likeBtn.classList.add('liked');
+} 
+
+function like(){
+    
+
+if (isLiked==='true') {
+    // 좋아요가 이미 눌려있는 경우, 좋아요 취소
+    likeBtn.classList.remove('liked');
+    isLiked = 'false';
+    updateLikeStatus(isLiked);
+} else {
+    // 좋아요가 눌려있지 않은 경우, 좋아요 버튼 활성화
+    likeBtn.classList.add('liked');
+    isLiked = 'true';
+
+    // 서버에 좋아요 상태 업데이트 요청
+    updateLikeStatus(isLiked);
+}
+}
+
+function updateLikeStatus(isLiked) {
+        // Ajax를 사용하여 서버에 데이터 전송
+        $.ajax({
+                type: 'POST',
+                url: '/page/update-like-status',
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({
+                    username: '<%=dataList.id%>',
+                    postnum: '<%=dataList.num%>'
+                }),
+                success: function (response) {
+                    // 업데이트된 좋아요 개수를 받아와서 화면에 반영
+                    liketotal = response.updatedLikeCount;
+                    console.log('좋아요 상태가 업데이트되었습니다. liketotal:',liketotal);
+                    document.getElementById('liketotal').innerText = liketotal;
+                },
+                error: function () {
+                    console.error('좋아요 상태 업데이트에 실패했습니다.');
+                }
+            });
+        }
+    // 버튼 클릭 시 좋아요 토글
+    document.getElementById('likeBtn').addEventListener('click', like);
+</script>
+</html>

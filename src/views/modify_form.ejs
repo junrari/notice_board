@@ -1,0 +1,7 @@
+<script src="/static/js/image_read.js"></script>
+<form method="post" enctype="multipart/form-data" action="/file/modify">
+    <input type="hidden" name="originFileName" value="<%=fileName%>">
+    <img id="preview" src="/file/download/<%= fileName %>" width="auto" height="auto">
+    <input type="file" name="newFileName" onchange="readURL(this)"> <br>
+    <input type="submit" value="수정">
+</form>

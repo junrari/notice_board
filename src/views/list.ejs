@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="/static/css/styles.css"/> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <%- include('./main.ejs')%>
+
+  
+<div class="container">
+    전체 게시글 수: <%=totalContent%> 
+<table >
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>등록</th>
+        <th>작성자</th>
+        <th>조회수</th>
+        <th style="line-height:0">
+                <img src="/static/image/like.png" alt="좋아요 아이콘">
+              
+            
+    </tr>
+       <% if(list===0) { %>
+        <tr>
+            <th colspan="6">
+                등록된 정보가 없습니다
+            </th>
+        </tr>
+    <%}else{%>
+            <% list.forEach(data=>{%>
+            <tr>
+                <td>
+                    <%= data.rn %>
+                </td>
+                <td>
+                    <a href="/page/content/<%=data.num%>">
+                     <span class="title"><%= data.title %></a> 
+                        <%if(data.image_path!==null){%>
+                        <img src="/static/image/photo.png" class="list_photoIcon" alt="사진"></span>
+                        <%}%>   
+                </td>
+                <td>
+                    <%= data.pdate %>
+                </td>
+                <td>
+                    <%= data.fullname %>
+                </td>
+                <td>
+                    <%= data.count %>
+                </td>
+                <td>
+                    <%= data.like_count %>
+                </td>
+            </tr>
+        <%})%>
+    <%}%>
+ 
+    <tr>
+        <td colspan="6">
+            <div style="text-align: center;">   
+                <% if(start <=1){%>
+                    <button disabled class="nav-button">이전</button>
+                <%}else{%>
+                        <button type="button"
+                        onclick="location.href='/page/list?start=<%=start -1%>'" class="nav-button">이전</button>
+                <%} for (var i=1 ; i< start; i++ ){%>
+                <a href="/page/list?start=<%=i%>"> <%=i%> </a>
+                <%}%>
+                <a href="/page/list?start=<%=start%>" class="current-page"><%=start%></a>
+                <%for (var i=start+1 ; i <= page.totalPage; i++ ){%>
+                    <a href="/page/list?start=<%=i%>"> <%=i%> </a>
+                <%} if(start< page.totalPage){ %>
+                    <button type="button"
+                                    onclick="location.href='/page/list?start=<%=start+1%>'" class="nav-button">다음</button>
+                                <%}else{%>
+                                    <button disabled class="nav-button">다음</button>
+                                    <%}%>
+            </div>
+           
+
+                <div style="text-align: right;"> <a href="/page/write_form" class="write-link">글등록</a></div>   
+
+        </td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

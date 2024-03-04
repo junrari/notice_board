@@ -1,0 +1,391 @@
+/* General Styles for the Bulletin Board */
+body {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.bulletin-board {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detail-section h3 {
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.detail-section p, .detail-section a {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6; /* Adjust line height for better readability */
+}
+
+.detail-section a {
+    color: #0077cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.detail-section a:hover {
+    color: #005580;
+}
+
+/* Styling for the Content */
+.detail-section .content-text {
+    background-color: #f5f5f5; /* Background color for the content */
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.6; /* Adjust line height for better readability */
+}
+/* 버튼 스타일 적용 */
+.detail-section .button-link {
+    display: inline-block;
+    padding: 10px 15px; /* Padding adjusted for a more compact look */
+    background-color: #0077cc;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px; /* Font size adjusted for a bulletin board feel */
+    outline: none; 
+}
+
+.detail-section .button-link:hover {
+    background-color: #005580;
+}
+
+.detail-section .button-link:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* 모든 댓글을 위한 컨테이너 */
+#content {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f7f7f7; /* 연한 회색 배경 */
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 깊이를 위한 그림자 */
+  }
+  
+  /* 개별 댓글 스타일 */
+  #content div {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* 각 댓글을 위한 둥근 모서리 */
+    background-color: #ffffff; /* 댓글을 위한 흰색 배경 */
+    border: 1px solid #e0e0e0; /* 연한 회색 테두리 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 깊이를 위한 그림자 */
+  }
+  
+  /* 헤더(아이디, 생성 날짜, 제목, 내용) 스타일 */
+  #content b {
+    color: #333; /* 헤더를 위한 진한 회색 색상 */
+    margin-right: 5px; /* 레이블과 콘텐츠 사이의 간격 */
+  }
+  
+  /* 수평선 스타일 */
+  #content hr {
+    border: none;
+    border-top: 1px solid #e0e0e0; /* 연한 회색 선 */
+    margin: 15px 0; /* 선 위아래 간격 */
+  }
+  
+  /* 모바일 반응성을 위한 크기와 여백 조정(선택 사항) */
+  @media (max-width: 768px) {
+    #content {
+      margin: 10px;
+      padding: 15px;
+    }
+    
+    #content div {
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .mainDiv{
+    text-align: center;
+        display: flex;
+        align-items: center; /* Vertical alignment */
+        justify-content: center; /* Horizontal alignment */
+        height: 260px;
+        overflow: hidden; /* Ensure content doesn't overflow the div */
+  }
+
+
+
+
+
+  /* 기존의 스타일 코드 */
+body {
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  background-color: #f9fafc;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 940px;
+  margin: 60px auto;
+  background-color: #ffffff;
+  height: auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.imgZone{
+  text-align: center;
+  display: flex;
+  align-items: center; /* Vertical alignment */
+  justify-content: center; /* Horizontal alignment */
+  height: 260px;
+  overflow: hidden; /* Ensure content doesn't overflow the div */
+}
+.main_img {
+  transform: scale(0.3); /* Reduce image size */
+  object-fit: contain; /* Ensure the image fits within the div */
+}
+
+th {
+  font-weight: bold;
+  padding-top: 14px;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #e3e6eb;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+td, th {
+
+  padding: 16px 20px;
+  text-align: left;
+
+}
+
+table a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+table a:hover {
+  color: #0056b3;
+}
+
+table {
+  max-width: 100%;
+  width: 994px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table tr:hover {
+  background-color: #f4f6f8;
+}
+
+table caption {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.pagination {
+  margin-top: 34px;
+  text-align: center;
+}
+
+.pagination a, .pagination button {
+  padding: 11px 16px;
+  margin: 0 7px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #666;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.pagination a.current-page, .pagination a:hover, .pagination button:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.current-page {
+  background-color: #ff6347;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button {
+  padding: 10px 16px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #e0e0e0;
+  color: #555;
+}
+
+.pagination-link {
+  padding: 8px 12px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-link:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* 글등록 링크를 오른쪽 끝에 배치 */
+.container table td[colspan="4"] {
+  text-align: right;
+}
+
+.write-link {
+  color: #007bff;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: auto;
+}
+
+.write-link:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+.like-button {
+  cursor: pointer;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.liked {
+  background-color: #c21f1f;
+  color: white;
+}
+
+.answerbtn{
+   display: inline-block;
+    padding: 10px 15px;
+    background-color: #4caf50; /* Green background color for "등록" button */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    float: right; /* Move the "등록" button to the right */
+    margin-right: 10px;
+}
+.deletebtn{
+  display: inline-block;
+   padding: 10px 15px;
+   background-color: rgb(228, 197, 197); /* Green background color for "등록" button */
+   color: rgb(255, 0, 0);
+   text-decoration: none;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 14px;
+   float: right; /* Move the "등록" button to the right */
+   margin-right: 10px;
+}
+.container th,
+.container td {
+  border-right: none; /* 세로 줄의 우측 테두리 없애기 */
+  padding: 16px 20px;
+  text-align: center;
+  border-bottom: 1px solid #e3e6eb;
+  border-radius: 8px;
+}
+.container img {
+  width: 100%;
+  height: 100%; /* 이미지의 높이를 tr의 높이와 동일하게 설정 */
+  object-fit: cover;
+}
+.container th:last-child {
+  width: 10%; /* 마지막 th의 너비를 설정 */
+}
+.container th:first-child {
+  width: 5%; /* 마지막 th의 너비를 설정 */
+}
+.container th:nth-child(3) {
+  padding: 5px;
+  width: 20%; /* 세 번째 th의 너비를 설정 */
+  border-radius: 0; /* border-radius를 0으로 설정 */
+}
+.welcome-message {
+  position: fixed;
+  top: 50px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+}
+.logout-button {
+  margin: center;
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #bb204e; /* 링크 배경색 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+  transition: background-color 0.3s ease; /* 호버 효과 전환 속도 */
+}
+
+.logout-button:hover {
+  background-color: #0056b3; /* 마우스 호버 시 배경색 변경 */
+}
+.content_img{
+  width: auto;
+  height: auto;
+}
+.list_photoIcon {
+  display: inline-block;
+  vertical-align: middle; /* 텍스트와 수직 중앙 정렬 */
+  margin-right: 5px; /* 이미지와 텍스트 사이의 간격 조절 */
+  max-width: 14px; /* 이미지의 최대 너비 설정 (원하는 크기로 조절) */
+  max-height: 14px; /* 이미지의 최대 높이 설정 (원하는 크기로 조절) */
+}
+
+.title {
+  display: inline-block; /* 제목과 이미지를 수평으로 배치 */
+}

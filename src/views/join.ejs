@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/static/css/user.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<title>Sign Up</title>
+<script src="/static/js/join.js"></script>
+
+<body>
+    <div class="container">
+
+        <h2>Sign Up</h2>
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required readonly>
+        <button class="btn_input" id="idDuplication" onclick="opencheckIDwindow()">Duplication Check</button>
+
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" disabled>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" disabled>
+ 
+
+        <button class="btn_input" onclick="validateForm()" id="register">register</button>
+
+
+
+        <p>Already have an account? <a href="/user/login">Login</a></p>
+    </div>
+</body>
+<script>
+   
+</script>

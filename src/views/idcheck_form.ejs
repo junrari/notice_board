@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/static/css/user.css"/> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <title>ID Check Form</title>
+<script src="/static/js/idcheck.js"></script>
+
+<body>
+    <div class="container" style="text-align: center;">
+        <h3>USERNAME Confirm</h3>
+     
+        username: <input type="text" id="usernameInput" autofocus>
+        <span id="usernameError" style="color: red;"></span>
+        <div id="result" class="resultRed"></div>
+        <input type="submit" class="btn_input" id="submitId" onclick="btnConfirm()" value="confirm"></input>
+        <input type="submit" class="btn_hidden" id="useButton" value="use" ></input>
+    </div>
+<script>
+    const btnSubmit = document.getElementById('submitId');
+const btnUse = document.getElementById('useButton');
+const username = document.getElementById('usernameInput');
+let text = document.getElementById('result');
+let Pattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/; //username 영문숫자조합으로 제약
+let open = false;
+
+btnUse.addEventListener('click', ()=>{
+    window.opener.document.getElementById("username").value=username.value;
+    window.opener.document.getElementById("password").disabled=false;  //join.html의 text,button 비활성화
+    window.opener.document.getElementById("confirmPassword").disabled=false;
+    window.opener.document.getElementById("idDuplication").setAttribute('class','lockBtn');
+    window.close();
+})
+</script>
+
+</body>
+
