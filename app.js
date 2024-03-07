@@ -2,6 +2,8 @@ const express = require("express")
 const app = express()
 const cookieParser = require("cookie-parser");
 const session = require("express-session")
+const passport = require('passport');
+
 require('dotenv').config()
 //process.env.DB
 
@@ -16,9 +18,15 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }))
+app.use(passport.initialize());
+    app.use(passport.session());
 
 const router = require("./src/routes/router")(app)
 app.use("/", router)
+const passportConfig = require('./config/kakaoStrategy');
+
+passportConfig(app);
+
 
 app.set("views","./src/views")
 app.set("view engine","ejs")

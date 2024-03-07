@@ -9,10 +9,27 @@
     <img src="/static/image/main.png" class="main_img " onclick="location.href='/page'"">
 </div>
 <div class="welcome-message" id="userinfo">
-    <%=name%>(<%=id%>) 님 
-    <br>
-    <a href="/page/mypage" class="button-link">마이페이지 이동</a><br><br>
-    <a href="/user/logout" class="logout-button"> 로그아웃</a>
+
+    <% if (check) { %>
+        <% if (profile_image) { %>
+            <img src="/static/<%= profile_image %>" alt="프로필 사진" width="110" height="110"> <br>
+        <% } else { %>
+            <img src="https://cdn-icons-png.flaticon.com/512/4645/4645949.png" alt="프로필 사진" width="110" height="110"> <br>
+        <% } %>
+    
+        <%= name %> (<%= id %>) 님 <br>
+        <a href="/page/mypage" class="button-link">마이페이지 이동</a><br><br>
+    
+        <% if (!iskakao) { %>
+            <a href="/user/logout" class="logout-button"> 로그아웃</a>
+        <% } else { %>
+            <a href="/auth/kakao/logout" class="logout-button"> 카카오 로그아웃</a>
+        <% } %>
+    
+    <% } else { %>
+        로그인이 필요합니다!<br>
+        <a href="/user/login" class="logout-button">로그인 페이지 이동</a>
+    <% } %>
 </div>
 
 

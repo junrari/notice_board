@@ -6,8 +6,8 @@
     <div id="first">
         <div style="width: 250px;margin: 0 auto; padding-top: 20px;"></div>
         <form id="frm">
-            <input type="hidden" name="write_group" value="<%=dataList.num%>"><br>
-            <input type="text" name="id" placeholder="input id"><br>
+            <input type="hidden" name="write_group" value="<%=dataList.num%>"><br>          
+          <%if(check){%>  <%=name%>(<%=id%>) 님 <br><%}%>
             <input type="text" name="title" placeholder="input title"><br>
             <textarea name="content"  cols="30" rows="5"></textarea><hr>
             <button type="button" onclick="rep()">답글</button>

@@ -1,6 +1,12 @@
 function reply_form(){
+  
+if(check){
     $("#first").slideDown("slow")
     $("#modal_wrap").slideDown("slow")
+}else{
+    alert('로그인 후 이용가능합니다.')
+}
+    
 }
 function reply_hide(){
     $("#first").hide()

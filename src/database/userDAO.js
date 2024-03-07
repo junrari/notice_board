@@ -80,8 +80,72 @@ const userDB ={
             console.error('MySQL에 연결 중 오류 발생:', error);
             throw error;
         }
+    },
+    edit_profile:async(data)=>{
+        try {
+            const conn = await pool.getConnection();
+            const param= [data.image_path,data.username]
+            console.log("param:!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#",param);
+            try {
+                console.log('Connected to MySQL database.');
+                const sql = 'update user set profile_image =? where username =?';
+                const [result] = await conn.query(sql, param);
+                console.log('Result dao: ', result);
+            } finally {
+                conn.release();
+            }
+        } catch (error) {
+            console.error('MySQL에 연결 중 오류 발생:', error);
+            throw error;
+        }
     }
 
 }
 
-module.exports = {userDB}
+const social={
+
+    getUserById: async(kakaoId) => {
+        try {
+            const conn = await pool.getConnection();
+            const param= [kakaoId];
+          
+            console.log("param:",param);
+            try {
+                console.log('Connected to MySQL database.');
+                const sql = `select * from  kakao_user where kakao_id = ?`;
+                const [result] = await conn.query(sql, param);
+                console.log('Result dao: ', result);
+                return result[0];
+            } finally {
+                conn.release();
+            }
+        } catch (error) {
+            console.error('MySQL에 연결 중 오류 발생:', error);
+            throw error;
+        }
+    },
+    kakaoAdduser: async(profile)=>{
+        try {
+            const conn = await pool.getConnection();
+            console.log("이메일:!!!!!!",profile._json.kakao_account.email);
+            const param= [profile.id,profile.displayName, profile._json.kakao_account.email, profile._json.properties.profile_image]
+            console.log("param:",param);
+            try {
+                console.log('Connected to MySQL database.');
+                const sql = 'insert into kakao_user(kakao_id,name,email,profile_image) values (?,?,?,?)';
+                const [result] = await conn.query(sql, param);
+                console.log('Result dao: ', result);
+            } finally {
+                conn.release();
+            }
+        } catch (error) {
+            console.error('MySQL에 연결 중 오류 발생:', error);
+            throw error;
+        }
+    },
+
+
+
+}
+
+module.exports = {userDB,social}

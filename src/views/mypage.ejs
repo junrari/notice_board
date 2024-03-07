@@ -1,20 +1,50 @@
-<link rel="stylesheet" href="/static/css/styles.css"/> 
+<link rel="stylesheet" href="/static/css/styles.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/static/css/styles.css"/> 
+<link rel="stylesheet" href="/static/css/styles.css" />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
 
 
 <div class="imgZone">
     <img src="/static/image/main.png" class="main_img " onclick="location.href='/page'">
 </div>
-<div class="container">
-    유저 개인정보
-    <%=id%> 
+
+<div class="userinfo">
+    <span class="userinfoSpan">
+        <form action="/user/profile_image" method="post" enctype="multipart/form-data">
+            <img id="preview" src="<%=profile_image%>" alt="프로필 사진" width="110"
+            height="110">
+            <%if(!iskakao){%>
+            <img id="preview" src="/static/<%=profile_image%>" alt="프로필 사진" width="110"
+            height="110">
+            
+            <input type="file" name="file_name" onchange="readURL(this)">
+            <button type="submit">Upload Profile Picture</button>
+            <%}%>
+        </form>
+    </span>
+
+
+    <span class="userinfoSpan">아이디: <%=id%><br>
+            이름:<%=name%><br>
+                이메일:<%=email%><br></span>
+
 </div>
+
 <%- include ("./mypage_content") %>
-<div id="mypage">
-    
-    <%- include ("./mypage_like") %>
 
+        <%- include ("./mypage_like") %>
 
+        <script>
+                function readURL(input){
+        const file = input.files[0]
+        console.log(file);
+        if(file !="") {
+            const reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onload =(e)=>{
+                document.querySelector("#preview").src =e.target.result;
+            }
+        }
+    }
+        </script>

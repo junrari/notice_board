@@ -137,16 +137,6 @@ body {
   padding: 0;
 }
 
-.container {
-  max-width: 940px;
-  margin: 60px auto;
-  background-color: #ffffff;
-  height: auto;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
-}
 
 .imgZone{
   text-align: center;
@@ -389,3 +379,27 @@ table caption {
 .title {
   display: inline-block; /* 제목과 이미지를 수평으로 배치 */
 }
+.userinfo{
+  display: flex;
+    background-color: #d4e5f8f5;
+    color: #000000;
+    max-width: 940px;
+    margin: 60px auto;
+    border-radius: 5px;
+    font-size: 30px;
+    padding: 30px;
+}
+.container {
+  max-width: 940px;
+  margin: 60px auto;
+  background-color: #ffffff;
+  height: auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+.userinfoSpan{
+  flex:1;
+/* or any other desired vertical position */
+  }

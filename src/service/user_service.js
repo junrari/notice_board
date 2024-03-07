@@ -1,5 +1,6 @@
 const dao =require("../database/userDAO")
 
+
 const userServ = {
     loginServ: async(req) =>{
         let [result] = await dao.userDB.login(req)
@@ -16,6 +17,8 @@ const userServ = {
             data.msg = '일치하는 정보가 있습니다'
             data.id = result.username
             data.name = result.fullname
+            data.email = result.email
+            data.profile_image = result.profile_image
             console.log("메세지는:",data);
             return data;
         }
@@ -36,6 +39,9 @@ const userServ = {
     },
     joinServ: async(req) =>{
         await dao.userDB.join(req)
+    },
+    edit_profile: async(data)=>{
+        await dao.userDB.edit_profile(data);
     }
 }
 
