@@ -23,11 +23,10 @@ const views = {
             totalContent,
             image_check: data.image_path,
             check: false,
-            profile_image: null,
             iskakao:false
         }
         if (req.session.user) {
-            let  cleanedProfile = req.session.user.profile_image.replace('public\\', '');
+           let  cleanedProfile = req.session.user.profile_image.replace('public\\', '');
             Object.assign(dataList, {
                 id: req.session.user.id,
                 name: req.session.user.username,
@@ -55,10 +54,7 @@ const views = {
 
         const data = await service.pageRead.content(req.params.num);
         const likeData = await service.likeServ.pagelike(req.params.num);
-        let cleanedImagePath = null
-        if (data.image_path !== null) {
-            cleanedImagePath = data.image_path.replace('public\\', '');
-        }
+        
         dataList = {
             num: data.num,
             title: data.title,
@@ -67,7 +63,7 @@ const views = {
             count: data.count,
             writer_username: data.username,
             writer_fullname: data.fullname,
-            image_path: cleanedImagePath,
+            image_path: null,
             like: likeData,
             check: false,
             profile_image: null,
@@ -76,6 +72,12 @@ const views = {
         if (req.session.user) {
             const post = { username: req.session.user.id, postnum: data.num }   //좋아요도 불러오기 
             const isLike = await service.likeServ.isLike(post);
+            if (req.session.profile_image){
+                let cleanedImagePath = req.session.profile_image
+                cleanedImagePath = data.image_path.replace('public\\', '');
+                dataList.image_path = cleanedImagePath;
+            }
+           
             let  cleanedProfile = req.session.user.profile_image.replace('public\\', '');
             Object.assign(dataList, {
                 id: req.session.user.id,

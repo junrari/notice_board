@@ -12,14 +12,16 @@
 <div class="userinfo">
     <span class="userinfoSpan">
         <form action="/user/profile_image" method="post" enctype="multipart/form-data">
-            <img id="preview" src="<%=profile_image%>" alt="프로필 사진" width="110"
-            height="110">
+            
             <%if(!iskakao){%>
             <img id="preview" src="/static/<%=profile_image%>" alt="프로필 사진" width="110"
             height="110">
-            
+            <br>
             <input type="file" name="file_name" onchange="readURL(this)">
-            <button type="submit">Upload Profile Picture</button>
+            <button type="submit" style="background-color: aqua;">프로필 사진 변경</button>
+            <%}else{%>
+            <img id="preview" src="<%=profile_image%>" alt="프로필 사진" width="110"
+            height="110">
             <%}%>
         </form>
     </span>

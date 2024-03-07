@@ -4,6 +4,7 @@ const process ={
         if(req.session.user){
             data = req.body
             data.id = req.session.user.id
+            data.name = req.session.user.username
             const result = await ser.repInsert.register(data)
             console.log("rep.con.proc.register.result:",result);
             res.json(result)

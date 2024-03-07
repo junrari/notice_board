@@ -1,6 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
+    flex-direction: column; /* Align children in a column */
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -86,7 +87,45 @@ button:hover {
     color: blue;
 }
 
-.lockBtn{
-   background-color: gray;
-   pointer-events: none;
-}
+.kakao-login-button {
+    max-width: 40%;
+    display: flex;
+    align-items: center;
+    background-color: #FEE500; /* KakaoTalk yellow color */
+    color: #000; /* Text color */
+    padding: 7px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .kakao-icon {
+    width: 40px; /* Adjust the width of the KakaoTalk icon as needed */
+    height: 40px;
+  /* Adjust spacing between icon and text */
+  }
+  
+  /* Hover Styles */
+  .kakao-login-button:hover {
+    background-color: #FFEB3B; /* Lighter yellow on hover */
+  }
+  
+  /* Disabled Styles */
+  .kakao-login-button:disabled {
+    background-color: #D3D3D3; /* Grayed out when disabled */
+    cursor: not-allowed;
+  }
+  .imgZone{
+    text-align: center;
+    display: flex;
+    align-items: center; /* Vertical alignment */
+    justify-content: center; /* Horizontal alignment */
+    height: 260px;
+    overflow: hidden; /* Ensure content doesn't overflow the div */
+  }
+  .main_img {
+    transform: scale(0.3); /* Reduce image size */
+    object-fit: contain; /* Ensure the image fits within the div */
+  } 

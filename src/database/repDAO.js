@@ -19,8 +19,8 @@ const repInsert = {
 
             try {
                 console.log('Connected to MySQL database.');
-                const sql = `insert into reply(id,title,content,write_group) values (?,?,?,?)`;
-                const param = [body.id,body.title,body.content,body.write_group]
+                const sql = `insert into reply(id,title,content,write_group,name) values (?,?,?,?,?)`;
+                const param = [body.id,body.title,body.content,body.write_group,body.name]
                 const [result] = await conn.query(sql,param);
                 console.log('Result repDao: ',result);
 

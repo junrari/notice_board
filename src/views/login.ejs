@@ -3,8 +3,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
     <title>Login Page</title>
-
+    
 <body>
+    <div class="imgZone">
+        <img src="/static/image/main.png" class="main_img " onclick="location.href='/page'">
+    </div>
     <div class="container">
         
             <h2>Login</h2>
@@ -18,12 +21,16 @@
 <div style= "padding: 3px 0px 0px 0px">
     <button  type="button" onclick="location.href='/user/join'" value="회원가입">Join</button>
 </div>
-<a href="/auth/kakao">카카오 로그인</a>
-            
+<br>
+    <button onclick="location.href='/auth/kakao'" class="kakao-login-button " ><img src="/static/image/kakaotalk.png" class="kakao-icon">로그인</button>
+
+
+
             
 
        
     </div>
+</body>
 <script>
  function login(){
         let username = document.getElementById("username").value;
@@ -49,4 +56,3 @@
         })
     }
 </script>
-</body>

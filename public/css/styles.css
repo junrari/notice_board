@@ -64,7 +64,7 @@ body {
 
 .detail-section .button-link:hover {
     background-color: #005580;
-}
+} 
 
 .detail-section .button-link:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
