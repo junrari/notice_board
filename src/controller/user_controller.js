@@ -19,15 +19,12 @@ const views = {
 const process = {
     loginuser: async (req, res) => {
         const data = await service.userServ.loginServ(req.body)
-        console.log("중간체크 process.loginuser", data)
-
 
         if (!data.exist) {
 
-            console.log("usercontrl.process.loginuser 메세지", data.msg);
             console.log("usercontrl.process.loginuser", data);
             res.json(data);
-        }//일치한 정보가 있으면 ~~
+        }//일치한 정보가 있으면 
         else {
             req.session.user = {
                 id: data.id,
