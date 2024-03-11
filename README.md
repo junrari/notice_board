@@ -11,7 +11,8 @@
 ![image](https://github.com/junrari/notice_board/assets/66519544/1ff71f69-d76a-4f28-8919-f8062e85324a)
 
 ## DB 구조
-![image](https://github.com/junrari/notice_board/assets/66519544/4baf9c56-2398-4e86-982c-32efebf215ef)  
+![image](https://github.com/junrari/notice_board/assets/66519544/69c5d1a7-378e-4814-a2b7-6a2c36923b0a)
+
 
 
 ### user table
