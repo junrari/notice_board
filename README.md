@@ -1,4 +1,4 @@
-![제12목 없음](https://github.com/junrari/notice_board/assets/66519544/240258fd-5951-47c9-a90e-988f9e3f38f7)## 개발환경
+## 개발환경
 - JavaScript(ES6),NodeJS,Express.js, MySQL
 
 ## 개발목적
@@ -190,9 +190,16 @@ use 버튼을 누르면 username에 자동으로 삽입된다.
 ![image](https://github.com/junrari/notice_board/assets/66519544/d6bda9f0-e251-4c71-accd-d869a916184c)
 ![image](https://github.com/junrari/notice_board/assets/66519544/0848cbd6-a8cf-4c59-9d69-9b9c1f899aed)![image](https://github.com/junrari/notice_board/assets/66519544/635d6983-5463-45b4-883a-c50f78beddad)
 
+`insert into user (fullname, email, username, password) values (?,?,?,SHA2(?,224))`;
+MySQL에서 제공하는 해시함수 SHA(?,224)을 이용해 암호화한다.
+
+![image](https://github.com/junrari/notice_board/assets/66519544/778839cf-fadc-4814-8a92-18086516bd6d)
+
+
 #### 카카오톡 로그인
 
 ![ㄴㅇㅇ2ㄴㄹ없음](https://github.com/junrari/notice_board/assets/66519544/e0124c9e-733f-40ac-9a2d-ccac53b05438)
+
 
 ![image](https://github.com/junrari/notice_board/assets/66519544/ae5113df-3618-41b4-b62b-a7aaa29e65a5)
 
@@ -283,6 +290,33 @@ use 버튼을 누르면 username에 자동으로 삽입된다.
 
 
 프로필사진과 닉네임(이름)이 바뀐것을 확인할 수 있다.
+
+
+</details>
+
+### 답글 관련
+<details>
+ 
+<summary>  접기/펼치기 </summary>
+
+#### 1. 답글 조회
+![image](https://github.com/junrari/notice_board/assets/66519544/4bde820b-558c-4a32-8154-1f16bc0ca14d)
+
+
+#### 2. 답글 등록
+ ![image](https://github.com/junrari/notice_board/assets/66519544/319f2d04-5f7a-4412-bc7b-4d96d2ca584d)
+
+ 로그인한 유저는 답글 등록이 가능하고, 답글 등록시
+
+ ![image](https://github.com/junrari/notice_board/assets/66519544/5362efa3-9b71-4652-ac8f-9915b92eeeff)
+
+ 답글리스트를 reload한다.
+
+
+#### 3. 답글 삭제
+
+![ㄴㅇㅇㄴㅇ2ㄴㄹ없음](https://github.com/junrari/notice_board/assets/66519544/878b7d1b-82e9-40c3-8dc8-ecc83503674a)
+
 
 
 </details>
